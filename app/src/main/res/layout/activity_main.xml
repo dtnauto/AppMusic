@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <FrameLayout
+            android:id="@+id/frame_layout_play"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/costraint_layout_activity_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frame_layout_ui"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_toStartOf="@id/bottom_nav_main"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_toStartOf="@id/bottom_nav_main"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:id="@+id/bottom_sheet_play_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:behavior_hideable="true"
+                    app:behavior_peekHeight="0dp"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                    <ImageView
+                        android:id="@+id/im_title"
+                        android:layout_width="63dp"
+                        android:layout_height="63dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/layout_control"
+                        android:layout_toEndOf="@id/im_title"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            style="@style/TextAppearance.Compat.Notification.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="title"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tv_artist"
+                            style="@style/TextAppearance.Compat.Notification.Info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="artist"
+                            android:textSize="15dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_control"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/layout_play_pause"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/bt_pre"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/skip_previous_24px" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/layout_play_pause"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/bt_pause"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/pause_24px" />
+
+                            <ImageButton
+                                android:id="@+id/bt_play"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/play_arrow_24px" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/layout_play_pause"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/bt_nex"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/skip_next_24px" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_navigation_menu" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
